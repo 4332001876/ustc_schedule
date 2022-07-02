@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/setting">
+
+    <PreferenceCategory
+        android:key="profile_category" >
+
+        <Preference
+            android:key="@string/personal_info"
+            android:title="@string/personal_info"
+            android:icon="@drawable/ic_user"
+            app:isPreferenceVisible="false" >
+        </Preference>
+
+        <SwitchPreference
+            android:key="@string/profile_check"
+            android:title="@string/profile_check"
+            android:icon="@drawable/ic_secured"
+            android:summary="@string/profile_check_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="manager" >
+
+        <Preference
+            android:key="@string/check_update"
+            android:title="@string/check_update"
+            android:icon="@drawable/ic_time">
+
+        </Preference>
+
+        <SwitchPreference
+            android:key="@string/auto_update"
+            android:title="@string/auto_update"
+            android:icon="@drawable/ic_refresh"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="@string/permission_manager"
+            android:title="@string/permission_manager"
+            android:icon="@drawable/ic_lock_off"
+            app:isPreferenceVisible="false" >
+
+        </Preference>
+
+        <Preference
+            android:key="@string/reminder_manager"
+            android:title="@string/reminder_manager"
+            android:icon="@drawable/ic_notification"
+            app:isPreferenceVisible="false" >
+
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="other" >
+
+        <Preference
+            android:key="@string/personalization"
+            android:title="@string/personalization"
+            android:icon="@drawable/ic_tips"
+            app:isPreferenceVisible="false" >
+
+        </Preference>
+
+        <Preference
+            android:key="@string/focus"
+            android:title="@string/focus"
+            android:icon="@drawable/ic_hourglass">
+
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
