@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String getSharedStringTodo(){
-        String temp="***Todolist\n";
+        String temp="";
         MainDatabaseHelper db_helper = new MainDatabaseHelper(this);
         SQLiteDatabase db = db_helper.getReadableDatabase();
         Cursor cursor = db.query("TODO", new String[]{"_id", "IS_FINISH", "NAME", "START_TIME", "WORK_LOAD",
@@ -73,13 +73,17 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < cursor.getCount(); i++) {
             MyTodolist todo = new MyTodolist(cursor);
+            if(todo.getStringTodo()!=null&&i==0)
+            {
+                temp="***Todolist\n";
+            }
             temp=temp+todo.getStringTodo()+""+todo.getWorkloadStringTodo()+"\n"+"\n";
             cursor.moveToNext();
         }
         return temp;
     }
     public String getSharedStringDeadline(){
-        String temp="***DDL\n";
+        String temp="";
         MainDatabaseHelper db_helper=new MainDatabaseHelper(this);
         SQLiteDatabase db=db_helper.getReadableDatabase();
         Cursor cursor=db.query("DDL",new String[]{"_id","IS_FINISH","NAME" ,"START_TIME" ,"WORK_LOAD",
@@ -89,13 +93,17 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i=0;i<cursor.getCount();i++){
             MyDeadLine todo=new MyDeadLine(cursor);
+            if(todo.getStringDeadline()!=null&&i==0)
+            {
+                temp="***DDL\n";
+            }
             temp=temp+todo.getStringDeadline()+""+todo.getWorkloadStringDeadLine()+"\n"+"\n";
             cursor.moveToNext();
         }
         return temp;
     }
     public String getSharedStringMyschedule(){
-        String temp="***My Schedule\n";
+        String temp="";
         MainDatabaseHelper db_helper=new MainDatabaseHelper(this);
         SQLiteDatabase db=db_helper.getReadableDatabase();
         Cursor cursor = db.query("SCHEDULE", new String[]{"_id", "IS_FINISH", "NAME", "START_TIME", "END_TIME", "TIME_LENGTH",
@@ -105,6 +113,10 @@ public class MainActivity extends AppCompatActivity {
             cursor.moveToFirst();
             for (int i = 0; i < cursor.getCount(); i++) {
                 MySchedule schedule = new MySchedule(cursor);
+                if(schedule.getStringMyschedule()!=null&&i==0)
+                {
+                    temp="***My Schedule\n";
+                }
                 temp = temp + schedule.getStringMyschedule()+"  "+schedule.getTimelengthStringMyschedule()+schedule.getStringMyschedule2()+ "\n"+"\n";
                 cursor.moveToNext();
             }
